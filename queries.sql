@@ -14,11 +14,11 @@ SELECT * FROM animals WHERE Name != 'Gabumon';
 
 SELECT * FROM animals WHERE weight_kg >= 10.4 AND weight_kg <= 17.3;
 
-UPDATE animals SET Species = 'Unspecified';
+UPDATE animals SET Species = 'unspecified';
 
 UPDATE animals SET Species = 'digimon' WHERE Name like '%mon';
 
-UPDATE animals SET Species = 'pokemon' WHERE Species = 'Unspecified';
+UPDATE animals SET Species = 'pokemon' WHERE Species = 'unspecified';
 
 BEGIN TRANSACTION;
 
