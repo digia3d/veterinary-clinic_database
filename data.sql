@@ -14,6 +14,7 @@ VALUES
   ( 11, 'Ditto', '2022-05-14', 4, 'true', '22' );
 
 /* After adding column Species */
+UPDATE animals SET species = 'unspecified';
 
 INSERT INTO animals
   (ID, Name, Date_of_birth, Escape_attempts, Neutered, Weight_kg , Species )
