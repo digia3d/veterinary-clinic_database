@@ -44,6 +44,7 @@ VALUES
   (4,'Melody Pond', 77 ),
   (5,'Dean Winchester', 14 ),
   (6,'Jodie Whittaker', 38 );
+  
 INSERT INTO species
   (id,name)
 VALUES
@@ -76,3 +77,15 @@ FROM owners
 WHERE full_name = 'Melody Pond') WHERE name = 'Charmander' OR name = 'Squirtle' OR name = 'Blossom';
 
 UPDATE animals SET owner_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester') WHERE name = 'Angemon' OR name = 'Boarmon';
+
+INSERT INTO vets 
+( name, age, date_of_graduation )
+VALUES 
+( 'Vet William Tatcher', 45, 'Apr 23, 2000' ),
+( 'Vet Maisy Smith', 26, 'Jan 17, 2019' ),
+( 'Vet Stephanie Mendez', 64, 'May 4, 1981' ),
+( 'Vet Jack Harkness', 38, 'Jun 8, 2008' );
+
+BEGIN TRANSACTION;
+INSERT INTO specializations (vets_id, species_id) VALUES (1, 1),(3, 1),(3, 2),(4, 2);
+COMMIT TRANSACTION;
