@@ -34,3 +34,45 @@ VALUES
 UPDATE animals SET Species = 'digimon' WHERE Name like '%mon';
 
 UPDATE animals SET Species = 'pokemon' WHERE Species = 'unspecified';
+
+INSERT INTO owners
+  (id,full_name, age)
+VALUES
+  (1,'Sam Smith ', 34),
+  (2,'Jennifer Orwell', 19 ),
+  (3,'Bob', 45 ),
+  (4,'Melody Pond', 77 ),
+  (5,'Dean Winchester', 14 ),
+  (6,'Jodie Whittaker', 38 );
+INSERT INTO species
+  (id,name)
+VALUES
+  (1,'Pokemon'),
+  (2,'Digimon');
+
+UPDATE animals SET species_id = (SELECT id
+FROM species
+WHERE name = 'Digimon') WHERE name LIKE '%mon';
+
+UPDATE animals SET species_id = (SELECT id
+FROM species
+WHERE name = 'Pokemon') WHERE name NOT LIKE '%mon';
+
+
+UPDATE animals SET owner_id = (SELECT id
+FROM owners
+WHERE full_name = 'Sam Smith') WHERE name = 'Agumon';
+
+UPDATE animals SET owner_id = (SELECT id
+FROM owners
+WHERE full_name = 'Jennifer Orwell') WHERE name = 'Gabumon' OR name = 'Pikachu';
+
+UPDATE animals SET owner_id = (SELECT id
+FROM owners
+WHERE full_name = 'Bob') WHERE name = 'Devimon' OR name = 'Plantmon';
+
+UPDATE animals SET owner_id = (SELECT id
+FROM owners
+WHERE full_name = 'Melody Pond') WHERE name = 'Charmander' OR name = 'Squirtle' OR name = 'Blossom';
+
+UPDATE animals SET owner_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester') WHERE name = 'Angemon' OR name = 'Boarmon';
