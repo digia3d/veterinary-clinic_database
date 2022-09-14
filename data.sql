@@ -38,18 +38,17 @@ UPDATE animals SET Species = 'pokemon' WHERE Species = 'unspecified';
 INSERT INTO owners
   (id,full_name, age)
 VALUES
-  ('Sam Smith ', 34),
-  ('Jennifer Orwell', 19 ),
-  ('Bob', 45 ),
-  ('Melody Pond', 77 ),
-  ('Dean Winchester', 14 ),
-  ('Jodie Whittaker', 38 );
-
+  (1,'Sam Smith ', 34),
+  (2,'Jennifer Orwell', 19 ),
+  (3,'Bob', 45 ),
+  (4,'Melody Pond', 77 ),
+  (5,'Dean Winchester', 14 ),
+  (6,'Jodie Whittaker', 38 );
 INSERT INTO species
   (id,name)
 VALUES
-  ('Pokemon'),
-  ('Digimon');
+  (1,'Pokemon'),
+  (2,'Digimon');
 
 UPDATE animals SET species_id = (SELECT id
 FROM species
