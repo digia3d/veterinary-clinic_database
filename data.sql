@@ -36,7 +36,7 @@ UPDATE animals SET Species = 'digimon' WHERE Name like '%mon';
 UPDATE animals SET Species = 'pokemon' WHERE Species = 'unspecified';
 
 INSERT INTO owners
-  (full_name, age)
+  (id,full_name, age)
 VALUES
   ('Sam Smith ', 34),
   ('Jennifer Orwell', 19 ),
@@ -46,7 +46,7 @@ VALUES
   ('Jodie Whittaker', 38 );
 
 INSERT INTO species
-  (name)
+  (id,name)
 VALUES
   ('Pokemon'),
   ('Digimon');
