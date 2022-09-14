@@ -25,7 +25,7 @@ CREATE TABLE owners
 CREATE TABLE species
 (
     ID int,
-    full_name VARCHAR(100),
+    name VARCHAR(100),
     PRIMARY KEY (ID)
 );
 
