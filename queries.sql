@@ -135,6 +135,12 @@ INNER JOIN animals ON animals.id = visits.animals_id
 WHERE vets.name = 'Stephanie Mendez'
 AND visits.date_of_visit BETWEEN 'Apr 1, 2020' AND 'Aug 30, 2020';
 
+/* What animal has the most visits to vets? */
+SELECT animals.name, COUNT(visits.animals_id) AS visit_count FROM visits
+INNER JOIN vets ON vets.id = visits.vets_id
+INNER JOIN animals ON animals.id = visits.animals_id
+GROUP BY animals.name, visits.animals_id;
+
 /* Who was Maisy Smith's first visit? */
 SELECT animals.name, visits.date_of_visit AS first_visit FROM visits
 INNER JOIN vets ON vets.id = visits.vets_id
@@ -165,8 +171,3 @@ WHERE vets.name = 'Maisy Smith'
 GROUP BY species.name
 ORDER BY species_count DESC LIMIT 1;
 
-/* What animal has the most visits to vets? */
-SELECT animals.name, COUNT(visits.animals_id) AS visit_count FROM visits
-INNER JOIN vets ON vets.id = visits.vets_id
-INNER JOIN animals ON animals.id = visits.animals_id
-GROUP BY animals.name, visits.animals_id
