@@ -59,9 +59,6 @@ CREATE TABLE specializations (
 
 ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 
-SELECT COUNT(*) FROM visits where animal_id = 4;
-SELECT * FROM visits where vet_id = 2;
-SELECT * FROM owners where email = 'owner_18327@mail.com';
 
 CREATE INDEX animals_animals_id_desc ON visits(animals_id DESC);
 CREATE INDEX vets_id_asc ON visits(vets_id ASC);
