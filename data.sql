@@ -125,3 +125,9 @@ VALUES (9, 2, 'Feb 27, 2020'),
 (10, 3, 'May 24, 2020'), 
 (10, 1, 'Jan 11, 2021');
 COMMIT TRANSACTION;
+
+INSERT INTO visits (animals_id, vets_id, date_of_visit) SELECT * FROM (SELECT id FROM animals) animals_ids,(SELECT id FROM vets) vets_ids, generate_series('1980-01-01'::timestamp, '2021-01-01', '4 hours') visit_timestamp;
+
+insert into owners (full_name, email) select 'Owner ' || generate_series(1,2500000), 'owner_' || generate_series(1,2500000) || '@mail.com';
+
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animals_id = 4;

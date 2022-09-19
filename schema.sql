@@ -54,12 +54,12 @@ CREATE TABLE specializations (
     FOREIGN kEY (vets_id) REFERENCES vets(id),
     PRIMARY kEY (species_id, vets_id)
 );
-CREATE TABLE visits (
-    animals_id INT,
-    vets_id INT,
-    date_of_visit DATE,
-    id INT GENERATED ALWAYS AS IDENTITY,
-    FOREIGN KEY (animals_id) REFERENCES animals(id),
-    FOREIGN KEY (vets_id) REFERENCES vets(id),
-    PRIMARY KEY (id)
-);
+
+
+
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+
+CREATE INDEX animals_animals_id_desc ON visits(animals_id DESC);
+CREATE INDEX vets_id_asc ON visits(vets_id ASC);
+CREATE INDEX email_desc ON owners(email DESC);
